@@ -21,18 +21,16 @@ public class Calendar {
 	
 	public static void main(String[] args) {
 		
+		String PROMPT="car> ";
+		
 		Scanner sc =new Scanner(System.in);
 		
 		
-		System.out.println("반복 횟수를 입력하세요");
-		int num = sc.nextInt();
-		
-		int i = 0;
-		while(i < num) {
+		while(true) {
 		//숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
 
 		System.out.println("달을 입력하세요");
-		
+		System.out.print(PROMPT);
 //		int month, max;
 //		String s1 = sc.next();
 //		month = Integer.parseInt(s1);
@@ -59,14 +57,16 @@ public class Calendar {
 		Calendar cal = new Calendar();
 		int month = sc.nextInt();
 		
-		
+		if(month == -1) {
+			break;
+		}
+		if(month > 12) {
+			continue;
+		}
 		System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
 		
 		//cal.printSampleCalendar();
 		
-		
-		
-		i++;
 		}
 		System.out.println("Bye~");
 		sc.close();
